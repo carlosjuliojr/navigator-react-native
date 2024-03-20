@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable prettier/prettier */
 /* eslint-disable react/react-in-jsx-scope */
 import {createStackNavigator} from '@react-navigation/stack';
@@ -5,6 +6,8 @@ import {ProductsScreen} from '../screens/products/ProductsScreen';
 import {HomeScreen} from '../screens/home/HomeScreen';
 import {SettingsScreen} from '../screens/settigns/SettingsScreen';
 import { ProductScreen } from '../screens/products/ProductScreen';
+import { useNavigation } from '@react-navigation/native';
+import { useEffect } from 'react';
 
 export type RootStackParams = {
   Home: undefined,
@@ -16,6 +19,14 @@ export type RootStackParams = {
 const Stack = createStackNavigator<RootStackParams>();
 
 export const StackNavigator = () => {
+  const navigator = useNavigation();
+
+  useEffect(() => {
+    navigator.setOptions({
+      headerShown:false,
+    });
+}, []);
+
   return (
     <Stack.Navigator
       screenOptions={{

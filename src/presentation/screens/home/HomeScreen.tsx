@@ -6,6 +6,7 @@ import { globalStyles } from '../../theme/theme';
 import { type NavigationProp, useNavigation, DrawerActions } from '@react-navigation/native';
 import { PrimaryButton } from '../../components/shared/PrimaryButton';
 import { type RootStackParams } from '../../routes/StackNavigator';
+import { HamburguerMenu } from '../../components/shared/HamburguerMenu';
 
 export const HomeScreen = () => {
   const navigation = useNavigation<NavigationProp<RootStackParams>>();
@@ -14,10 +15,7 @@ export const HomeScreen = () => {
     navigation.setOptions({
       // eslint-disable-next-line react/no-unstable-nested-components
       headerLeft: () => (
-        <Pressable
-          onPress={() => navigation.dispatch(DrawerActions.toggleDrawer)}>
-          <Text>Menu</Text>
-        </Pressable>
+        <HamburguerMenu />
       ),
     });
   }, []);

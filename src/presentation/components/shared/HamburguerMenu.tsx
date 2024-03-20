@@ -5,6 +5,8 @@ import { DrawerActions, NavigationProp, useNavigation } from '@react-navigation/
 import React, { useEffect } from 'react';
 import { Pressable, Text } from 'react-native';
 import { RootStackParams } from '../../routes/StackNavigator';
+import { IonIcon } from './IonIcon';
+import { globalColors } from '../../theme/theme';
 
 export const HamburguerMenu = () => {
   const navigation = useNavigation<NavigationProp<RootStackParams>>();
@@ -15,7 +17,7 @@ export const HamburguerMenu = () => {
       headerLeft: () => (
         <Pressable
           onPress={() => navigation.dispatch(DrawerActions.toggleDrawer)}>
-          <Text>Menu</Text>
+          <IonIcon name='menu' size={30} color={globalColors.primary} />
         </Pressable>
       ),
     });
