@@ -9,6 +9,7 @@ import { globalColors } from '../theme/theme';
 import { View, useWindowDimensions } from 'react-native';
 import { ProductsScreen } from '../screens/products/ProductsScreen';
 import { HomeScreen } from '../screens/home/HomeScreen';
+import { ButtonTabNavigator } from './BottonTabNavigator';
 
 const Drawer = createDrawerNavigator();
 
@@ -33,10 +34,8 @@ export const SideMenuNavigator = () => {
 
       }}
     >
-      <Drawer.Screen name="StackNavigator" component={StackNavigator} />
+      <Drawer.Screen name="Tabs" component={ButtonTabNavigator} />
       <Drawer.Screen name="Profile" component={ProfileScreen} />
-      <Drawer.Screen name="Home" component={HomeScreen} />
-      <Drawer.Screen name="Products" component={ProductsScreen} />
     </Drawer.Navigator>
   );
 };
